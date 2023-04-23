@@ -26,32 +26,32 @@ description: This is an awesome post.
   <p>아우토크립트, 오픈소스 프로젝트, 외주 등</p>
 </div>
 
-<style type="text/css">
-  #leftCol {
-    margin-bottom: 40px;
-    margin-right: 30px;
-    width: 100%;
-    text-align: center;
-  }
-  #rightCol img {
-    height: 200px;
-    /*display: block;
-    margin-left: auto;
-    margin-right: auto;*/
-  }
-  @media screen and (min-width: 600px) {
-    #leftCol {
-        width: 35%; 
-        float: left;
-        height: 520px;
-      }
-    }
-  }
-  @media screen and (min-width: 600px) {
-    #rightCol {
-      width: 55%; 
-      float: right;
-    }
-  }
-  }
-</style>
+<!--<style type="text/css">-->
+<!--  #leftCol {-->
+<!--    margin-bottom: 40px;-->
+<!--    margin-right: 30px;-->
+<!--    width: 100%;-->
+<!--    text-align: center;-->
+<!--  }-->
+<!--  #rightCol img {-->
+<!--    height: 200px;-->
+<!--    /*display: block;-->
+<!--    margin-left: auto;-->
+<!--    margin-right: auto;*/-->
+<!--  }-->
+<!--  @media screen and (min-width: 600px) {-->
+<!--    #leftCol {-->
+<!--        width: 35%; -->
+<!--        float: left;-->
+<!--        height: 520px;-->
+<!--      }-->
+<!--    }-->
+<!--  }-->
+<!--  @media screen and (min-width: 600px) {-->
+<!--    #rightCol {-->
+<!--      width: 55%; -->
+<!--      float: right;-->
+<!--    }-->
+<!--  }-->
+<!--  }-->
+<!--</style>-->
