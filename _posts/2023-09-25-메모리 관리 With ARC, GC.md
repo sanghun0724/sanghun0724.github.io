@@ -3,7 +3,7 @@ layout: post
 
 ---
 <br/>
-### 메모리 관리<br>
+### 메모리 관리<br><br>
 
 "**메모리 관리**(memory management)는 [컴퓨터 메모리](https://ko.wikipedia.org/wiki/%EC%BB%B4%ED%93%A8%ED%84%B0_%EB%A9%94%EB%AA%A8%EB%A6%AC)에 적용된 [리소스](https://ko.wikipedia.org/wiki/%EC%8B%9C%EC%8A%A4%ED%85%9C_%EB%A6%AC%EC%86%8C%EC%8A%A4) 관리의 일종이다. 가장 단순한 형태의 메모리 관리 방법은 프로그램의 요청이 있을 때, 메모리의 일부를 해당 프로그램에 할당하고, 더 이상 필요하지 않을 때 나중에 다시 사용할 수 있도록 할당을 해제하는 것이다" - 위키피디아<br>
 
@@ -12,12 +12,13 @@ layout: post
 
 여러 이유들이 있겠지만 내가 생각했을때 앱개발자로서  가장 큰 이유는 2가지가 있다.
 ![국가별 인기 스마트폰 기종 - 2018년 7월 기준](https://kimchunsick.me/static/f7774dfe19783a9066c75ab3dc48d231/6a068/favorite-smartphones.jpg)
-1.  메모리를 최적화 한다면 너 낮은 사양의 기기들을 지원 가능. 더많은 유저 확보 가능
+<br>
+1.  메모리를 최적화 한다면 너 낮은 사양의 기기들을 지원 가능. 더많은 유저 확보 가능<br>
 
 1.  더 나은 유저 서비스 제공 가능, 메모리 릭 또는 댕글링 포인터 등의 문제 발생 방어 가능.
 
 <br>
-### 메모리 관리 기법 종류들<br>
+### 메모리 관리 기법 종류들<br><br>
 
 앱 개발 레이어에서는 메모리 관리 기법을 자동과 수동 기법으로 양분 해볼 수 있다.
 
@@ -33,7 +34,7 @@ layout: post
 
   <br>
 
-## MRC<br>
+## MRC<br><br>
 
 실제로 Objective-C에서는 MRC라는 ‘수동 메모리 관리 기법’을 사용했었다.<br>
 
@@ -49,56 +50,51 @@ name = newName;
 -   release : **retain count**(= reference count)를 **감소**시킴. retain 후에 필요 없을 때 release 함<br>
 <br>
 이런 식으로 retain과 relase를 사용하여 메모리 관리를 해주고는 했다. 하지만 프로그램이 커질수록 하나하나 인스턴스에 대한 메모리 관리를 해주는 것이 쉽지 않았고 그에 대한 대안으로 Apple에서는 ARC를 소개한다.
-
+<br><br>
   
 
-## ARC vs GC<br>
+## ARC vs GC<br><br>
 
 ARC란 자동 메모리 관리 기법에 속하는 방법 중 하나로 개발자가 신경쓸 필요없이 자동으로 Compile Time에 실행 되어 동적으로 Reference count를 세고 메모리 관리를 해주는 방법이다.
 <br>
   
 
-비슷한 방법으로 GC (**Garbage Collection**) 이라는 Jva or C#, GO 등에서 쓰이는 메모리 관리 기법 이 있는데 차이점을 서술하자면 이렇다.<br>
+비슷한 방법으로 GC (**Garbage Collection**) 이라는 Jva or C#, GO 등에서 쓰이는 메모리 관리 기법 이 있는데 차이점을 서술하자면 이렇다.<br><br>
 
 **GC**: 이미 할당된 **메모리에서 더 이상 사용하지 않는 메모리를 해제하는 기술**
 
 -   런타임시, 백그라운에서 사용되지 않는 개체와 개체 그래프를 감지하지 않는 방식으로 작동
 -   런타임 메모리가 부족하거나, 특정시간이 경과한 후 등의 불확실한 시점에 작동
 -   retain cycle을 포함하여 전체 객체 그래프를 한번에 관리
-<br>
+<br><br>
 
 **ARC**: 수동으로 개발자가 직접 retain/release를 통해 **reference counting을** 관리해야하는 부분을 **자동으로 관리해주는 기술**
 
 -   객체가 사용되지 않을때, 실시간으로 메모리에서 release
 -   컴파일 타임에 작동, 백그라운드 처리가 없으므로 메모리에 더 효과적
--   하지만 retain cycle을 자동으로 해결 x<br>
+-   하지만 retain cycle을 자동으로 해결 x<br><br>
 
 
-### + ARC가 Retain Cycle을 해결 못하는 이유<br>
+### + ARC가 Retain Cycle을 해결 못하는 이유<br><br>
 
 GC같은 경우 reachable 객체를 실시간으로 살펴보며 작동한다. 이 객체의 외부참조가 없는 것을 감지하면, 서로를 참조하는 객체 그래프 전체를 버리기 때문에 retain cycle이 발생하지 않는다.<br>
 
 반면 ARC는 GC보다 더 낮은 수준에서 작동하며, 참조 카운트를 기반으로 생명 주기를 관리하기 때문에 설계 상, retain cycle을 자동으로 처리할 수는 없다.
 
 이와 같은 문제를 해결하기 위해, strong, weak, unowned과 같은 Storage Modifier가 도입된 것이다.
-
-** Reachable: 사용하고 있는 메모리
-
+<br>
+**) Reachable: 사용하고 있는 메모리
+<br><br>
   
 
-## ARC Proposal
+## ARC Proposal<br><br>
 
-잠깐, 자동 메모리 관리 방법에는 ARC방법 뿐만 아니라 GC도 존재한다. 근데 왜 애플은 GC가 아닌 ARC를 도입 했을까?
-
-  
-
+잠깐, 자동 메모리 관리 방법에는 ARC방법 뿐만 아니라 GC도 존재한다. 근데 왜 애플은 GC가 아닌 ARC를 도입 했을까?<br>
 사실 애플에서는 GC를 도입한적이 있다. (ios는 아니고 os x 에서만)
 
 하지만 금방 os x에서도 deprecated 되었다. (10.5 ~. 10.8 OS X Mountain Lion )
 
-사실 이문제는, 효율성에 대한 문제이다. 두 시스템 모두 장단점이 있으며 애플은 단지 선택했을 뿐이다. GC보다는 ARC가 시스템에 더 효율적이라고 판단한 것이다.  두 기법의 차이점을 통해 구체적으로 그 기준을 살펴보자.
-
-  
+사실 이문제는, 효율성에 대한 문제이다. 두 시스템 모두 장단점이 있으며 애플은 단지 선택했을 뿐이다. GC보다는 ARC가 시스템에 더 효율적이라고 판단한 것이다.  두 기법의 차이점을 통해 구체적으로 그 기준을 살펴보자.<br>
 
 -   ARC는 전체적으로 GC보다 느릴수 있다. 애플은 이 문제가 크지 않다고 판단한 듯 하다.
 -   앞서 말했듯이, ARC는 Retain Cycle을 자동으로 처리해주지 않지만, 이를 위한 대안으로 Storage Modifier을 제공하고, 해당 부분은 개발자의 몫으로  넘어가길 택했다.
@@ -110,9 +106,9 @@ GC같은 경우 reachable 객체를 실시간으로 살펴보며 작동한다. �
 
 다시 돌아와서 그럼 ARC를 통한 참조 카운팅이 어떻게 이루어질까. 레퍼런스 카운팅은 그대로 말하자면, 참조 횟수이다. 즉, 이 인스턴스를 누가 얼마나 가르키고 있느냐를 나타낸 것이다.  그 기준은 뭔지 실제 코드를 보며 알아보자
 
--   Reference Counting ‘플러스’ + 일때
+-   **Reference Counting ‘플러스’ + 일때**<br>
 
-     - **인스턴스의 주소값을 변수에 할당할 때**
+     - 인스턴스의 주소값을 변수에 할당할 때
 
         1.  인스턴스를 새로 생성하는 경우
         ```
@@ -125,7 +121,7 @@ GC같은 경우 reachable 객체를 실시간으로 살펴보며 작동한다. �
         ```
   <br>
 
--   Reference Counting ‘마이너스’ - 일때
+-   **Reference Counting ‘마이너스’ - 일때**<br>
 
     - Object lifetime은 use-based 이다. 마지막 참조 사용시 직후 release를 실행
     
@@ -173,7 +169,7 @@ GC같은 경우 reachable 객체를 실시간으로 살펴보며 작동한다. �
 하지만, 만약 프로퍼티의 레퍼런스 카운터가 1 이상이라면 속한 클래스 인스턴스가 해제된다고 해도 프로퍼티의 인스턴스는 메모리에 남아있다. 즉, 무조건 속한 클래스의 인스턴스가 사라진다고 프로퍼티의 레퍼런스도 같이 사라진다는 것이 아니라 단순 reference count - 1을 해주는 것.<br>
 
   
-
+<br><br>
 #### +) 앞서 ARC설명 시에 ARC가 compile time에 실행되어 동적으로 실행되는 것들의 reference count를 세고 메모리 관리를 할 수있다고 하는데 그게 가능한 이유가 뭘까?<br><br>
 
 답은 ARC의 작동방식과 연관이 있다.  ARC의 메커니즘은 Swift Runtime이라는 라이브러리에 구현되어 있다. 그리고 Swift Runtime은 HeapObject 구조체를 사용하여 동적으로 할당된 모든 개체를 나타낸다. 이때 여기서 [the SIL generation phase](https://swift.org/compiler-stdlib/#compiler-architecture) 라는 컴파일 단계가 실행되게 된다. 그리고서는 HeapObject의 initialization & destruction 을 가로채어 _swiftc_ 컴파일러가 swift_retain() & swift_release() 코드를 적절히 삽입해주고 이 삽입된 코드들이 런타임에 적절히 실행되는 것이다.
@@ -182,11 +178,12 @@ GC같은 경우 reachable 객체를 실시간으로 살펴보며 작동한다. �
 <br>
 <br>
 <br>
+<br>
  
-+) REF
-https://developer.apple.com/videos/play/wwdc2021/10216/
++) REF<br>
+[https://developer.apple.com/videos/play/wwdc2021/10216/](https://developer.apple.com/videos/play/wwdc2021/10216/)
 
-https://www.quora.com/Why-doesnt-Apple-Swift-adopt-the-memory-management-method-of-garbage-collection-like-Java-uses
+[https://www.quora.com/Why-doesnt-Apple-Swift-adopt-the-memory-management-method-of-garbage-collection-like-Java-uses](https://www.quora.com/Why-doesnt-Apple-Swift-adopt-the-memory-management-method-of-garbage-collection-like-Java-uses)
 
 [https://velog.io/@ellyheetov/ARC-VS-GC](https://velog.io/@ellyheetov/ARC-VS-GC)
 
@@ -194,4 +191,4 @@ https://www.quora.com/Why-doesnt-Apple-Swift-adopt-the-memory-management-method-
 
 [https://medium.com/computed-comparisons/garbage-collection-vs-automatic-reference-counting-a420bd4c7c81](https://medium.com/computed-comparisons/garbage-collection-vs-automatic-reference-counting-a420bd4c7c81)
 
-https://www.vadimbulavin.com/swift-memory-management-arc-strong-weak-and-unowned/
+[https://www.vadimbulavin.com/swift-memory-management-arc-strong-weak-and-unowned/](https://www.vadimbulavin.com/swift-memory-management-arc-strong-weak-and-unowned/)
