@@ -3,6 +3,7 @@ layout: post
 
 ---
 <br/>
+
  ## Mutation<br>
 > : 어떤 것의 형태나 구조의 변화
 
@@ -28,13 +29,20 @@ layout: post
 - 사용 하기에 따라 유지보수성을 올릴 여지도 있다. 한곳에 모아두고 관리해야 하는 상태가 존재한다면 Mutation을 활용해봄직 하다.<br> 
 그럼에도 불구하고, Mutation 사용시 Side-Effect가 나오는 경우가 정말x4 많기 때문에 Mutation에 대한 정확한 이해 및 주의가 필요하다.<br>
 <br>
-## 타입에 따른 변화 관찰 <br>
+
+## 타입에 따른 변화 관찰 
+
 <br>
+<br>
+
 Swift에서는 참조 타입과 값 타입으로 구분하여 Mutation의 동작을 다르게 처리한다.
-그러므로 참조타입과 값타입의 행동 원리를 정확히 이해 하는게 중요하다. 이와 관련하여 크게 두가지로 나누어 코드 실행을 통해 살펴보자.<br>
+그러므로 참조타입과 값타입의 행동 원리를 정확히 이해 하는게 중요하다. 이와 관련하여 크게 두가지로 나누어 코드 실행을 통해 살펴보자.
 <br>
 <br>
-테스트 Class, Struct 작성<br>
+
+**테스트 Class, Struct 작성**
+<br>
+<br>
 
 ```swift
 // MARK: - class
@@ -89,9 +97,14 @@ extension PersonStruct: Equatable {
 <br>
 
 
-(1) - 변수에 할당된 인스턴스를 다른 인스턴스로 바꾸기 (let, var 각각 경우)<br>
+**(1) - 변수에 할당된 인스턴스를 다른 인스턴스로 바꾸기 (let, var 각각 경우)**
 
-Class<br>
+<br>
+<br>
+
+**Class**
+
+<br>
 <br>
 
 ```swift
@@ -118,7 +131,10 @@ print("------------------")
 ```
 
 <br>
-Struct<br>
+
+**Struct**
+
+<br>
 <br>
 
 ```swift
@@ -156,10 +172,14 @@ weak let weakMan = PersonClass(name: "weakMan")
 <br>
 <br>
 
-(2) - 할당된 인스턴스의 프로퍼티 값 바꾸기 (let, var 각각 경우)<br>
+**(2) - 할당된 인스턴스의 프로퍼티 값 바꾸기 (let, var 각각 경우)**
+
+<br>
 <br>
 
-Class<br>
+**Class**
+
+<br>
 
 ```swift
 // var
@@ -182,7 +202,9 @@ print(white2.jacket.color)
 print("------------------")
 ```
 <br>
-결과:
+
+**결과:**
+<br>
 
 ```
 ------------------
@@ -201,7 +223,9 @@ Class의 경우, 프로퍼티를 let과 var 둘다 변경이 가능하다. 어�
 <br>
 <br>
 
-Struct<br>
+**Struct**
+
+<br>
 ```swift
 print("------------------")
 // var
@@ -227,6 +251,8 @@ print("------------------")
 Struct의 경우, let으로 선언이 되면 자신은 물론 프로퍼티수정이 불가능 하다. 어째서 일까?
 Class와 다르게 참조형태가 아닌, 값 자체들을 (주로) Stack에 저장해두고 있기 때문이다. 그러므로 let에 해당하는것들은 struct값들 그자체이므로 Immutable 해진다.
 물론 mutable func도 사용하지 못한다.
+<br>
+<br>
 
 ## Struct with var<br>
 
