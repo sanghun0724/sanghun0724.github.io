@@ -4,7 +4,9 @@ layout: post
 ---
 <br/>
 
- ## Mutation<br>
+## Mutation
+
+<br>
 > : 어떤 것의 형태나 구조의 변화
 
 <br>
@@ -97,12 +99,12 @@ extension PersonStruct: Equatable {
 <br>
 
 
-**(1) - 변수에 할당된 인스턴스를 다른 인스턴스로 바꾸기 (let, var 각각 경우)**
+### **MISSON(1) - 변수에 할당된 인스턴스를 다른 인스턴스로 바꾸기 (let, var 각각 경우)**
 
 <br>
 <br>
 
-**Class**
+#### **Class**
 
 <br>
 <br>
@@ -132,7 +134,7 @@ print("------------------")
 
 <br>
 
-**Struct**
+#### **Struct**
 
 <br>
 <br>
@@ -172,12 +174,12 @@ weak let weakMan = PersonClass(name: "weakMan")
 <br>
 <br>
 
-**(2) - 할당된 인스턴스의 프로퍼티 값 바꾸기 (let, var 각각 경우)**
+### **MISSON(2) - 할당된 인스턴스의 프로퍼티 값 바꾸기 (let, var 각각 경우)**
 
 <br>
 <br>
 
-**Class**
+#### **Class**
 
 <br>
 
@@ -203,7 +205,7 @@ print("------------------")
 ```
 <br>
 
-**결과:**
+#### **결과:**
 <br>
 
 ```
@@ -223,7 +225,7 @@ Class의 경우, 프로퍼티를 let과 var 둘다 변경이 가능하다. 어�
 <br>
 <br>
 
-**Struct**
+#### **Struct**
 
 <br>
 ```swift
@@ -255,7 +257,7 @@ Class와 다르게 참조형태가 아닌, 값 자체들을 (주로) Stack에 �
 <br>
 
 ## Struct with var<br>
-
+<br>
 `var struct` 같은 경우는 해당 값들이 정말 변경 되는 것일까? 결론을 먼저 말하자면 "논리적으로 값타입은 Immutable하다"가 맞다. 
 <br>
 
