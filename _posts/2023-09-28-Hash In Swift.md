@@ -68,17 +68,17 @@ Ex) 해쉬 브라운, 해쉬 태그
 <br>
 <br>
 
-
-## Hash Table<br>
 앞서 말한, Direct-Address-Table의 문제점을 해결하기 위해 **Hash Table은 hash function 'h' 를 사용하여 (key: value)를 인덱스 h(k) 에 저장한다.** **주로 키 k값을 갖는 원소가 위치 h(k)에 해쉬된다.** 라고 표현하기도 한다.  그리고 여기서 전제조건은 key가 무조건 존재해야 하며 중복되서도 안된다
 <br>
 > slot, bucket: hash table을 구성하는 (key:value)를 저장하는 각각의 공간을 칭함.
+<br>
 <br>
 
 좀 더 구체적으로, Hash Table을 사용해 Direct-Address-Table의 문제점을 어떻게 해결할까?<br>
 
 1. 공간 낭비 문제 
 방금과 같이 2000의 값을 가지는 key가 있다고 가정하면, 해쉬 테이블은 Hash Function을 활용해 키값을 넣어 해쉬값을 만들어 내고 그값을 인덱스로 사용하여 효율성을 높인다.<br> 예를들어, k modular 9 이라는 식의 해쉬 함수가 있다면 2000을 9로 나눈 나머지니깐 2가 나온다. 그럼 index0 ~ 2000이 아닌 index 0 ~ 2만 써도 되니 불필요한 공간 논리 상, 1998을 아낄 수 가 있다. (원리가 이렇다는 것)
+<br>
 <br>
 
 2. Key 자료형 지원 문제
