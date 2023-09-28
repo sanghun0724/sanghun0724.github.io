@@ -28,7 +28,7 @@ layout: post
 이와 같은 문제들을 해결한 버전(?)이 바로 **Hash Table** 개념이다.
 <br>
 <br>
-## Hash Table<br>
+## Hash Definition<br>
 <br>
 해쉬테이블을 제대로 설명하기전, 해싱,해쉬, 해쉬 함수 등의 용어정리를 먼저 정리해보자.
 <br>
@@ -68,9 +68,16 @@ Ex) 해쉬 브라운, 해쉬 태그
 <br>
 <br>
 
-앞서 말한, Direct-Address-Table의 문제점을 해결하기 위해 **Hash Table은 hash function 'h' 를 사용하여 (key: value)를 인덱스 h(k) 에 저장한다.** **주로 키 k값을 갖는 원소가 위치 h(k)에 해쉬된다.** 라고 표현하기도 한다.  그리고 여기서 전제조건은 key가 무조건 존재해야 하며 중복되서도 안된다
+## Hash Definition
 <br>
+
+앞서 말한, Direct-Address-Table의 문제점을 해결하기 위해 **Hash Table은 hash function 'h' 를 사용하여 (key: value)를 인덱스 h(k) 에 저장한다.<br>
+** **주로 키 k값을 갖는 원소가 위치 h(k)에 해쉬된다.** 라고 표현하기도 한다.  그리고 여기서 전제조건은 key가 무조건 존재해야 하며 중복되서도 안된다
+<br>
+<br>
+
 > slot, bucket: hash table을 구성하는 (key:value)를 저장하는 각각의 공간을 칭함.
+
 <br>
 <br>
 
@@ -199,7 +206,7 @@ public struct Set<Element: Hashable> {
 <br>
 이처럼 원소를 hashable 타입으로 받고있다. 그래서 일반적으로 Set은 일반적으로 키와 값이 동일한 해시맵으로 구현되거나 한다.(아닌 경우가 있을수 있지만) <br>
 결국 이런 각 고유한 해쉬 값을 통해 값의 조회가 가능하니 O(1)로 조회가 가능한 것이다.<br>
-또한 같인이유로 Set에 어떤 커스텀 타입을 넣고 싶다면 해당 타입은 꼭 Hashable을 준수해야 한다.<br>
+또한 같은 이유로 Set에 어떤 커스텀 타입을 넣고 싶다면 해당 타입은 꼭 Hashable을 준수해야 한다.<br>
 
 
 <br>
