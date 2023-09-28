@@ -186,6 +186,23 @@ let BuyM1 = macBookDict[MyMacBook(name: "M1", price: 100)] // -> "M1 구입했�
 Swift 4.1 이전까지는 자동으로 구현되지 않아 반드시 사용자가 hash(into:) 함수와 == 연산자를 구현해주어야 했다고 함
 <br>
 <br>
+재밌는건 이 부분이 Set의 Contain함수가 O(1)인 이유를 설명해 준다는 것이다. 
+Set의 구현체를 보면 
+<br>
+```swift
+@frozen
+@_eagerMove
+public struct Set<Element: Hashable> {
+  @usableFromInline
+  internal var _variant: _Variant
+```  
+<br>
+이처럼 원소를 hashable 타입으로 받고있다. 그래서 일반적으로 Set은 일반적으로 키와 값이 동일한 해시맵으로 구현되거나 한다.(아닌 경우가 있을수 있지만) <br>
+결국 이런 각 고유한 해쉬 값을 통해 값의 조회가 가능하니 O(1)로 조회가 가능한 것이다.<br>
+또한 같인이유로 Set에 어떤 커스텀 타입을 넣고 싶다면 해당 타입은 꼭 Hashable을 준수해야 한다.<br>
+
+
+<br>
 
 
 ### Swift는 어떻게 Colision을 처리할까?
