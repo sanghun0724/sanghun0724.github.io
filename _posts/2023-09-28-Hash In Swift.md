@@ -68,7 +68,7 @@ Ex) 해쉬 브라운, 해쉬 태그
 <br>
 <br>
 
-## Hash Definition
+## Hash Table
 <br>
 
 앞서 말한, Direct-Address-Table의 문제점을 해결하기 위해 **Hash Table은 hash function 'h' 를 사용하여 (key: value)를 인덱스 h(k) 에 저장한다.<br>
@@ -99,7 +99,7 @@ Ex) 해쉬 브라운, 해쉬 태그
 <br>
 <br>
 
-## **Colision**
+## Colision
  
 <br>
 
@@ -114,13 +114,13 @@ Ex) 해쉬 브라운, 해쉬 태그
 여러가지 방법이 있지만, 이 섹터에서 소개할건 **open addressing**방식과  **chaning** 방식이다.
 
 <br>
-### Open Addressing
+### - Open Addressing
 <br>
 
 Collision이 발생하면 미리 정한 규칙에 따라 hash table의 비어있는 slot을 찾는다. (추가적인 메모리 사용 x) <br>
 slot을 찾는 방식에 따라 **Linear Probing, Quadratic Probing, Double Hashing** 등이 있음
 <br>
-#### Linear Probing(선형 조사법) & Quadratic Probing(이차 조사법)
+#### 1. Linear Probing(선형 조사법) & Quadratic Probing(이차 조사법)
 <br>
 colision발생시, 발생한 해시값으로 부터 일정한 값만큼 뛰어 넘어, 비어있는 slot에 데이터를 저장
 Linear(+1,2,3) Quadratic (1^2, 2^2,3^2)
@@ -128,7 +128,7 @@ colision이 많아지면 특정 영역에 데이터가 몰리는 클러스터링
 평균 탐색 시간이 증가
 
 <br>
-#### Double Hasing(이중 해싱)
+#### 2. Double Hasing(이중 해싱)
 <br>
 
 앞서말한 클러스터링 문제가 발생하지 않도록, 2개의 해쉬 함수를 사용함
@@ -137,7 +137,7 @@ colision이 많아지면 특정 영역에 데이터가 몰리는 클러스터링
 <br>
 <br>
 
-### Separate Chaning
+### - Separate Chaning
 <br>
 
 Linked List 또는 Tree를 사용한다. Collision 발생 시, Linked List에 노드(slot)을 추가하여 데이터를 저장
