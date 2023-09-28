@@ -34,21 +34,25 @@ layout: post
 <br>
 <br>
 
-#### - Hash
+#### **- Hash**
+
 <br>
 
 > “해시(hash)”는 일반적으로 무언가를 잘게 쪼갠 후에 결과물을 생성하는 과정을 의미
 Ex) 해쉬 브라운, 해쉬 태그
 <br>
 <br>
-#### - Hash Function<br>
+
+#### **- Hash Function**
+
+<br>
 위의 해쉬 개념을 컴퓨터 과학에 적용시켜 해쉬 함수를 다음과 같이 서술합니다.<br>
 > 임의의 길이를 가진 데이터를 입력받아 고정된 길이의 값, 즉 해시값을 출력하는 함수
 > 해시 함수를 사용하면 입력값에 대해 항상 동일한 규칙에 따라 고정된 길이의 해시값을 생성
 <br>
 <br>
 
-#### - Hash Value
+#### **- Hash Value**
 
 <br>
 
@@ -56,7 +60,8 @@ Ex) 해쉬 브라운, 해쉬 태그
 <br>
 <br>
 
-#### - Hashing
+#### **- Hashing**
+
 <br>
 
 > 매핑 전 원래 데이터의 값을 키(key), 매핑 후 데이터의 값을 해시값(hash value), 매핑하는 과정 자체를 해싱(hashing)
@@ -80,34 +85,45 @@ Ex) 해쉬 브라운, 해쉬 태그
 문제예시와 같이 key값이 String이 오게 된다면,  마찬가지로 해쉬 함수를 통해 이 스트링 값을 hash value로 치환해준다.(나름의 알고리즘 존재) 그리고는 그 값을 인덱싱하는데 쓸 수 있게 되는 것 이다. 
 <br>
 <br>
+
+
 ### 그러면 Hash Table은 마냥 해피해피한 자료구조일까?<br> 
 그렇지 않다. Hash Table도 여러가지 문제점을 갖고 있지만 가장 대표적인 문제점은 Colision 문제이다.
+<br>
 <br>
 
 ## **Colision**
  
 <br>
 
-> 서로 다른 Key의 해쉬값이 값을 때를 칭함. ( 중복되는 key는 없지만 hash value는 중복될 수 있다.)
+서로 다른 Key의 해쉬값이 값을 때를 칭함. ( 중복되는 key는 없지만 hash value는 중복될 수 있다.)<br>
 그러므로,  colision이 최대한 적게 나도록 해쉬 함수를 잘 설계해야하고, 발생하는 경우는 chaning 또는 open addressing등의 방법을 고려한다. (이외에도 많음)
-
-## Colision을 해결하는 방법<br>
 <br>
+<br>
+
+## Colision을 해결하는 방법
+<br>
+
 여러가지 방법이 있지만, 이 섹터에서 소개할건 **open addressing**방식과  **chaning** 방식이다.
 
 <br>
-<br>
 ### Open Addressing
+<br>
+
 Collision이 발생하면 미리 정한 규칙에 따라 hash table의 비어있는 slot을 찾는다. (추가적인 메모리 사용 x) <br>
 slot을 찾는 방식에 따라 **Linear Probing, Quadratic Probing, Double Hashing** 등이 있음
-
+<br>
 #### Linear Probing(선형 조사법) & Quadratic Probing(이차 조사법)
+<br>
 colision발생시, 발생한 해시값으로 부터 일정한 값만큼 뛰어 넘어, 비어있는 slot에 데이터를 저장
 Linear(+1,2,3) Quadratic (1^2, 2^2,3^2)
 colision이 많아지면 특정 영역에 데이터가 몰리는 클러스터링이 발생 할수도 있음. 클러스터링이 발생하면 
 평균 탐색 시간이 증가
 
+<br>
 #### Double Hasing(이중 해싱)
+<br>
+
 앞서말한 클러스터링 문제가 발생하지 않도록, 2개의 해쉬 함수를 사용함
 첫번째 해쉬함수: 최초의 해쉬값을 얻을때
 두번째 해쉬함수: colision발생 시, 탐사 이동폭을 얻기 위해
@@ -122,14 +138,20 @@ Linked List 또는 Tree를 사용한다. Collision 발생 시, Linked List에 �
 -> 검색 및 삭제 O(n) (기본은 O(1))) 
 <br>
 <br>
-## Swift Hashable Protocol 
+
+## Swift Hashable Protocol
+
+<br>
 Hashable 프로토콜은 해싱에 사용할 수 있는 해시 값을 생성하는 기능을 정의한다. 또한 여기서 해시 값은 고정 길이의 값을 가지며, 주로 컬렉션에서 빠른 검색을 위해 사용된다. Hashable 프로토콜을 준수하는 타입은
 ` func hash(into hasher: inout Hasher)`
 함수를 구현해야 한다.
 (Swift의 기본 타입은 기본적으로 Hasable하다.)
 <br>
 <br>
-Hasher(?)<br>
+
+#### - Hasher(?)
+
+<br>
 주석을 읽어보니 **hashValue**가 **deprecated** 되고 **hash**함수가 그 자리를 메운거 같음<br>
 Hasher는 **Set**과 **Dictionary**에서 사용되는 범용 해시 객체<br>
 **Hasher**를 사용하여 임의의 바이트 시퀀스를 정수 해시 값으로 매핑할 수 있다고 함.<br> 또한 **combine** 메서드를 사용하여 데이터를 해시에 추가할 수 있으며, 해시 작업을 완료한 후 **finalize()**를 호출하여 해시 값을 검색하는 것도 가능하다고 한다.<br>
@@ -166,14 +188,16 @@ Swift 4.1 이전까지는 자동으로 구현되지 않아 반드시 사용자�
 <br>
 
 
-## Swift는 어떻게 Colision을 처리할까?
+### Swift는 어떻게 Colision을 처리할까?
+<br>
 더 나아가 이런 궁금증도 생길 수 있다., Swift의 colision이 발생하면 어떤 방식을 사용할까? <br>
 Swift는 기본적으로 Cahning을 사용하고, 해시 충돌이 자주 발생할 것으로 예상되는경우, Linear Probing또는 Double hashing을 고려한다고 한다.<br>
 더불어, 해쉬 충돌을 예방하기 위해 (충돌 저항성을 높이기 위해) SipHash라는 방법을 사용한다고 한다.
 <br>
 <br>
 
-### SipHash & Seed<br>
+### SipHash & Seed
+<br>
 
 Swift뿐만 아니라 Radis에서도 사용하고 있는 해쉬 알고리즘이다. 
 임의의 값인 Seed를 활용해 동일한 입력 데이터에 대해  다른 해쉬 값이 생성되도록 하여 해쉬값을 분산시키고 충돌 저항성을 높힌다.
