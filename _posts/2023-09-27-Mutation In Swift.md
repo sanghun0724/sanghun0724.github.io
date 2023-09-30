@@ -140,7 +140,9 @@ print("------------------")
 <br>
 
 ```swift
-/// PersonStruct에 대한 값들이 stack에 저장
+let person3 = PersonStruct(name: "tony")
+let person4 = PersonStruct(name: "mathew")
+
 // var
 var woman1: PersonStruct = person3
 print("--------Struct-------")
