@@ -185,7 +185,7 @@ weak let weakMan = PersonClass(name: "weakMan")
 
 ```swift
 // var
-let white1 = PersonClass(name: "oliver")
+var white1 = PersonClass(name: "oliver")
 white1.name = "tom"
 white1.jacket = JacketClass(color: "red")
 print("------------------")
