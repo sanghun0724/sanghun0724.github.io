@@ -149,11 +149,11 @@ struct Stack<Element> {
 <br>
 <br>
 
-#### ** 구현부: 추상화 하여 작성 **
+### 구현부: 추상화 하여 작성
 
 <br>
 
-#### ** 호출부: 구체적인 타입 지정( 여기서 타입 지정 ) ** 
+### 호출부: 구체적인 타입 지정( 여기서 타입 지정 ) 
 <br>
 <br>
 
@@ -177,10 +177,10 @@ func makeArray() -> some Collection {
 <br>
 <br>
 
-#### ** 구현부: 구체적인 타입 지정 (여기서 타입 지정) **
+### 구현부: 구체적인 타입 지정 (여기서 타입 지정)
 <br>
 
-#### ** 호출부: 추상타입 **
+### 호출부: 추상타입
 <br>
 <br>
 
@@ -192,23 +192,23 @@ func makeArray() -> some Collection {
 +) Opeque Type은 해당 용도로 사용될 수 있습니다.
 <br>
 
-** - 함수(메소드)의 리턴타입 **
+**- 함수(메소드)의 리턴타입**
  
 <br>
 
-** - stored property 타입 **
+**- stored property 타입**
 
 <br>
 
-** - computed property 타입 **
+**- computed property 타입**
 
 <br>
 
-** - subscripts ** 
+**- subscripts** 
 
 <br> 
 
-** - (Swift 5.7 ~) 함수 파라미터 타입 **
+**- (Swift 5.7 ~) 함수 파라미터 타입**
 
 <br>
 <br>
