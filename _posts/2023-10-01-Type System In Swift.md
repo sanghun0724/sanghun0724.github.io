@@ -89,6 +89,7 @@ Generic은 컴파일시 프로토콜을 준수하는 구체적인 타입이 필�
 <br>
 
 ## Existential any <br>
+<br>
 any를 설명하기에 앞서, 해당 코드를 보자
 <br>
 
@@ -102,6 +103,7 @@ let text: Equatable = "st"
 Equatable를 타입으로는 지정할 수 없고, 타입으로 지정하려면 **‘any Equatable’**를 쓰라고 에러가 나온다. <br>
 `protocol Equatable` 가 num,text 의 `type` 으로 사용되었으므로, 이 맥락에서 `Equatable` 는 existential type 이다.<br>
 (**existential type**: protocol 이 type 으로 사용될 때를 칭함)
+<br>
 <br>
 
 보통 구체적인 타입을 프로토콜 타입으로 안전하게 치환할 수 있는 경우를 `‘covariant’`하다고 한다. 보통 associatedtype을 가지고 있거나(구현이 필요함), equatable의 연산자와 같이 
@@ -147,11 +149,11 @@ struct Stack<Element> {
 <br>
 <br>
 
-#### 구현부: 추상화 하여 작성
+#### ** 구현부: 추상화 하여 작성 **
 
 <br>
 
-#### 호출부: 구체적인 타입 지정( 여기서 타입 지정 )
+#### ** 호출부: 구체적인 타입 지정( 여기서 타입 지정 ) ** 
 <br>
 <br>
 
@@ -175,10 +177,10 @@ func makeArray() -> some Collection {
 <br>
 <br>
 
-#### 구현부: 구체적인 타입 지정 (여기서 타입 지정)
+#### ** 구현부: 구체적인 타입 지정 (여기서 타입 지정) **
 <br>
 
-#### 호출부: 추상타입
+#### ** 호출부: 추상타입 **
 <br>
 <br>
 
@@ -189,11 +191,24 @@ func makeArray() -> some Collection {
 <br>
 +) Opeque Type은 해당 용도로 사용될 수 있습니다.
 <br>
-- 함수(메소드)의 리턴타입<br>
-- stored property 타입<br>
-- computed property 타입 <br>
-- subscripts<br>
-- (Swift 5.7 ~) 함수 파라미터 타입<br>
+
+** - 함수(메소드)의 리턴타입 **
+ 
+<br>
+
+** - stored property 타입 **
+
+<br>
+
+** - computed property 타입 **
+
+<br>
+
+** - subscripts ** 
+
+<br> 
+
+** - (Swift 5.7 ~) 함수 파라미터 타입 **
 
 <br>
 <br>
