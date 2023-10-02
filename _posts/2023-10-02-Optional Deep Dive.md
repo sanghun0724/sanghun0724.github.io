@@ -6,6 +6,11 @@ layout: post
 
 <br>
 
+optional은 swift programming에서 가장 자주 사용하는 문법중 하나이다. 하지만, (이전의 나 역시도) optional이 어떤 형태를 갖추었고 어떻게 구현되어있는지 '정확히' 알지 못하여 이번 기회를 통해 알게 된 것들을 기록하고 서술한다.
+
+<br> 
+<br> 
+
 ## Optional is Enum
 
 <br>
