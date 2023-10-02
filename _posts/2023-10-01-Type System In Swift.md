@@ -160,7 +160,7 @@ struct Stack<Element> {
 와 같은 특징을 지닌다.
 
 이제 `opeque type`을 살펴보자. 
-opeque type some 키워드 + 프로토콜로 사용한다.
+opeque type `some 키워드 + 프로토콜` 로 사용한다.
 <br>
 <br>
 ```swift

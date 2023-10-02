@@ -120,6 +120,8 @@ Ex) 해쉬 브라운, 해쉬 태그
 Collision이 발생하면 미리 정한 규칙에 따라 hash table의 비어있는 slot을 찾는다. (추가적인 메모리 사용 x) <br>
 slot을 찾는 방식에 따라 **Linear Probing, Quadratic Probing, Double Hashing** 등이 있음
 <br>
+<br>
+
 #### 1. Linear Probing(선형 조사법) & Quadratic Probing(이차 조사법)
 <br>
 colision발생시, 발생한 해시값으로 부터 일정한 값만큼 뛰어 넘어, 비어있는 slot에 데이터를 저장
@@ -206,9 +208,9 @@ public struct Set<Element: Hashable> {
 <br>
 이처럼 원소를 hashable 타입으로 받고있다. 그래서 일반적으로 Set은 일반적으로 키와 값이 동일한 해시맵으로 구현되거나 한다.(아닌 경우가 있을수 있지만) <br>
 결국 이런 각 고유한 해쉬 값을 통해 값의 조회가 가능하니 O(1)로 조회가 가능한 것이다.<br>
-또한 같은 이유로 Set에 어떤 커스텀 타입을 넣고 싶다면 해당 타입은 꼭 Hashable을 준수해야 한다.<br>
+또한 같은 이유로 Set에 어떤 커스텀 타입을 넣고 싶다면 해당 타입은 꼭 Hashable을 준수해야 한다.
 
-
+<br>
 <br>
 
 
