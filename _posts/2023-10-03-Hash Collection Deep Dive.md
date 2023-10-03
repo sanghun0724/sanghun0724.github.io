@@ -317,6 +317,7 @@ DictionaryBuffer에는 lookup()이라는 함수가 정의되어있어. _NativeDi
 <br>
 
 <img src=“https://github.com/sanghun0724/sanghun0724.github.io/assets/66512239/5d5a0aab-efff-42da-a7df-0389eec4e4a3”>
+![image](https://github.com/sanghun0724/sanghun0724.github.io/assets/66512239/5d5a0aab-efff-42da-a7df-0389eec4e4a3)
 <br>
 <br>
 
