@@ -316,8 +316,8 @@ DictionaryBuffer에는 lookup()이라는 함수가 정의되어있어. _NativeDi
 해쉬테이블을 검색하면 해당 그림이 가장 먼저 나온다. 개인적으로 이 그림은 조금 오해의 소지가 있다고 본다. 
 <br>
 
-<img src=“https://github.com/sanghun0724/sanghun0724.github.io/assets/66512239/5d5a0aab-efff-42da-a7df-0389eec4e4a3”>
 ![image](https://github.com/sanghun0724/sanghun0724.github.io/assets/66512239/5d5a0aab-efff-42da-a7df-0389eec4e4a3)
+
 <br>
 <br>
 
