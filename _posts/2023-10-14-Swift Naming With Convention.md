@@ -561,13 +561,14 @@ enum [모듈이름]Error {}
 | as | 입력으로 제공된 데이터의 타입을 변경합니다. | `cast(value: Any, as: Int)` |
 | by | 입력으로 제공된 데이터를 사용하여 작업을 수행합니다. | `filter(numbers: [Int], by: { (number: Int) in number % 2 == 0 })` |
 | for | 입력으로 제공된 데이터의 모든 항목에 대해 작업을 수행합니다. | `forEach(numbers: [Int], for: { (number: Int) in ... })` |
+
 <br>
 <br>
 
 
 #### 전치사 사용 전에 끊어라
 ```swift
-func chapterMetadataGroups(withTitleLocale locale: Locale, containingItemsWithCommonKeys
+func chapterMetadataGroups(withTitleLocale locale: Locale, containingItemsWithCommonKeys)
 func determineCompatibleFileTypes(withCompletionHandler handler: ([String]) -> Void)
 ```
 
