@@ -61,7 +61,7 @@ grid.addObserver(self, forKeyPath: graphics) // clear
 ## 유창한 사용을 위한 노력
 <br>
 
-#### 영어 문법대로 말이되게 method명, 파라메터영 만들기
+#### 영어 문법대로 말이되게 method명, 파라메터명 만들기
 
 ```swift
 x.insert(y, at: z)          “x, insert y at z”
@@ -120,15 +120,18 @@ AudioUnit.instantiate(
 <br>
 
 > Term of Art :  특정 분야나 직업 내에서 정확하고 전문적인 의미를 갖는 단어나 문구.
+<br>
 
 #### 애매모호한 말들 피하기. Ex) 화려하고 겉만 번지르르한 단어들 말고 핵심적이고 본질적인 언어 써라.. 
+<br>
 
-**정해진 의미를 지켜라.**
+#### 정해진 의미를 지켜라.
 <br>
     1. Don’t surprise an expert. : 신조어 처럼 있던것 개조해서 말 만들지 말기 <br>
     2. Don’t confuse a beginner: 새로운 용어를 배우려는 사람은 본래 용어의 traditional한 의미를 먼저 배움. 그러니깐 건들이지 마.. 
 <br>
-약어, 축약어 피해라 
+<br>
+#### 정해진 의미를 지켜라.약어, 축약어 피해라 
 
 선례를 살펴보고 수용하기. 초보자에게 더 쉬운 용어를 제공하겠다고 선례 무시하고 신조어 만들지 말기.
 Ex) not list -> Array OK 
@@ -142,13 +145,21 @@ Ex) not list -> Array OK
 ## Convention
 <br>
 
-#### General Conventions
+### - General Conventions
+
+<br>
 
 #### O(1)이 아닌 Computed Property의 접근 시 Complexity을 문서화합니다. (오.. 이건 새롭다)
 
+<br>
+
 #### 그냥 생 free functions 보다 메소드나 프로퍼티를 선호하자.  (Free func는 거의 안써서.. 공감이 안됨)
 
-#### 카멜 케이스 컨벤션 따르기 
+<br>
+
+#### 카멜 케이스 컨벤션 따르기
+
+<br> 
 
 #### 같은 의미 이거나 같은 도메인일경우, Method들은 base name을 끼리끼리 공유 할수 있다.
 ```swift
@@ -181,7 +192,7 @@ extension Database {
 <br>
 
 #### “overloading on return type”를 피해라 
-❌❌ 타입 추혼에 있어 모호성을 유발
+❌❌ 타입 추론에 있어 모호성을 유발
 ```swift 
 extension Box {
   /// Returns the `Int` stored in `self`, if any, and
@@ -197,6 +208,7 @@ extension Box {
 <br>
  
 ## Parameters
+<br> 
 
 #### Documentation에 알맞은 (어울릴만한) 파라메터 명 채택하기 
 
@@ -245,12 +257,17 @@ Default 값이 없는 초기 파라메터가 보통 sementic 측면에서 중요
 <br>
 
 ## Agument Labels 
+<br> 
 
 #### 인수를 유용하게 구분할수 없는 경우 라벨들을 다 없애라. <br>
 (Ex)  min(number1, number2), zip(sequence1, sequence2) )
 
+<br> 
+
 #### 상위 타입 캐스팅 하는 경우 첫번째 라벨 없애기 
 Ex)Int64(someUInt32), String(veryLargeNumber, radix: 16)
+
+<br> 
 
 #### 하위 타입 캐스팅 하는 경우는 라벨 살리기
 
@@ -271,13 +288,16 @@ extension UInt32 {
 #### 첫번째 인자가 전치사구인 경우, 인자 라벨을 제공하기 
 Ex) x.removeBoxes(havingLength: 12).
 
+<br> 
+<br> 
+
 ❌❌  하지만 여러개의 인수들이 한가지의 추상화를 하고 있다면 Exeption
 ```swift
 a.move(toX: b, y: c)
 a.fade(fromRed: b, green: c, blue: d)
 ```
 <br>
--> 
+-> into
 <br>
 
 ```swift
@@ -289,7 +309,9 @@ a.fadeFrom(red: b, green: c, blue: d)
 첫번째 인자가 문법적인 표현을 구사하는 경우,  라벨 생략 -> 대신 func base name에 포함시키기 
 Ex) x.addSubview(y)
 
--> **반대로 말하면 첫번째 인자가 문법적으로 말하고 있지 않으면 라벨이 필요하단거임 <중요>**
+<br>
+\
+**반대로 말하면 첫번째 인자가 문법적으로 말하고 있지 않으면 라벨이 필요하단거임 <중요>**
 ```swift 
 view.dismiss(animated: false)
 let text = words.split(maxSplits: 12)
@@ -303,6 +325,7 @@ let studentsByName = students.sorted(isOrderedBefore: Student.namePrecedes)
 <br>
 
 ## Special Instructions
+<br>
 
 #### 튜플이나 클로져 파라메터에 라벨을 지정해라 
 
@@ -318,9 +341,14 @@ mutating func ensureUniqueStorage(
 ) -> (reallocated: Bool, capacityChanged: Bool)
 ```
 <br>
-top-level-func가 있으면 그 함수의 parameter 네이밍 하듯이 지어라.
+#### top-level-func가 있으면 그 함수의 parameter 네이밍 하듯이 지어라.
 
-Unconstrained 한 다형성을 다룰때는  오버로드 묶음들 중에서 애매함을 피하기 위해  좀더 신경써라
+<br>
+<br>
+
+#### Unconstrained 한 다형성을 다룰때는  오버로드 묶음들 중에서 애매함을 피하기 위해  좀더 신경써라
+
+<br>
 
 
 ❌❌  뭐가 실행되는지 애매함
@@ -355,8 +383,11 @@ struct Array {
 ```
 <br>
 <br>
+<br>
 
 # 코코아 터치 기반 Bool 케이스 정리 
+<br>
+
 is + 명사 
 “(무엇)인가?” 
 ```swift 
@@ -465,6 +496,7 @@ var returnsObjectsAsFaults: Bool //NSFetchRequest
 -> 주체에 따라 
 <br>
 <br>
+<br>
 
 # 변수 네이밍
 <br>
@@ -509,6 +541,7 @@ enum [모듈이름]Error {}
 [구체적]error
 ```
 
+<br>
 <br>
 <br>
 
