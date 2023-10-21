@@ -20,6 +20,8 @@ layout: post
 
 ***
 
+<br>
+
 ## MVC 
 
 <br>
@@ -63,6 +65,8 @@ layout: post
 <br>
 
 ***
+
+<br>
 
 ## MVP
 
@@ -131,6 +135,8 @@ Presenter의 역할을 단순화하여 하위 컨트롤러에서 뷰를 대신�
 
 ***
 
+<br>
+
 ## MVVM
 <br>
 ￼
@@ -162,6 +168,8 @@ MVVM은 WPF의 Data-Binding기능을 사용해서 View layer에서 거의 모든
 <br>
 
 ***
+
+<br>
 
 ## MVI 
 <br>
@@ -201,6 +209,8 @@ Hannes Dorfmann가 전통적인 MVP or MVVM의 문제점을 꼬집으며 내세�
 
 ***
 
+<br>
+
 ## Viper
 <br>
 
@@ -236,6 +246,8 @@ Clean Architecturer를 기반으로한 설계 -> 논리적 구조를 별개의 l
 <br>
 
 ***
+
+<br>
 
 ## RIBs
 <br>
