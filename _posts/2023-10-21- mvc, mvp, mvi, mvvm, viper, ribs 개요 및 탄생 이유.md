@@ -7,13 +7,13 @@ layout: post
 <br>
 
 설계 및 디자인 패턴, 아키텍쳐 패턴 등을 뭐라고 정의할까? 
-보통 어떤 문제가 발생하고 다른 똑똑한 사람들이 우아하며 일관성 있게 정리하여 내놓은 해답. 정도로 생각했다. 하지만, 아키텍쳐 영역은 거의 예술의 영역이라 볼수 있을 만큼 심오하다. 애초에 모든 문제에 대응하는 실버불릿이라고 말할 것들이 없으며 형태 또한 환경, 시기에 따라 자꾸 변화한다. 
+보통 이에 대해 어떤 문제가 발생하고 다른 똑똑한 사람들이 우아하며 일관성 있게 정리하여 내놓은 해답. 정도로 생각했다. 하지만, 아키텍쳐 영역은 거의 예술의 영역이라 볼수 있을 만큼 심오하다. 애초에 모든 문제에 대응하는 실버불릿이라고 말할 것들이 없으며 형태 또한 환경, 시기에 따라 자꾸 변화한다. 
 <br>
 
 ![image](https://github.com/sanghun0724/sanghun0724.github.io/assets/66512239/7db27232-a39a-4436-ae39-38e0d6b2eb4b)
 
 <br>
-그렇기에 아키텍쳐를  `“현재의 애플리케이션 개발을 위한 최선의 접근방식을 적용하려는 끊임없는 진화의 시도중 하나”` 라고도 정의할 수 있을 것 같다. 여기서 잊지 말아야 하는건 그 접근 방식의 시작은 항상 문제로 부터 출발한다는 거다. (설계나 패턴이 먼저가 아니라는 소리)
+이런의미에서 아키텍쳐를  `“현재의 애플리케이션 개발을 위한 최선의 접근방식을 적용하려는 끊임없는 진화의 시도중 하나”` 라고도 정의할 수 있을 것 같다. 여기서 잊지 말아야 하는건 그 접근 방식의 시작은 항상 문제로 부터 출발한다는 거다. (설계나 패턴이 먼저가 아니라는 소리)
 
 <br>
 <br>
@@ -45,7 +45,7 @@ layout: post
 #### 흔한 오해
 <br>
 
-`“controller가 model과 view를 분리시킨다?”` -> NO. MVC 패턴자체가 presentation Layer으로부터 Domain layer의 concern을 분리 시키는거다. 그리고 이 분리는 controller가 분리시키는게 아니라 observer pattern통해 달성이 됨. controller는 user와 application을 분리하는것 (view와 모델이 아니라..)
+`“controller가 model과 view를 분리시킨다?”` -> NO. MVC 패턴자체가 presentation Layer으로부터 Domain layer의 concern을 분리 시키는거다. 그리고 이 분리는 controller가 분리시키는게 아니라 observer pattern통해 달성이 된다. controller는 user와 application을 분리하는것 (view와 모델이 아니라..)
 
 <br>
 <br>
@@ -57,9 +57,8 @@ layout: post
 라이브 린스케이지(Trygve Reenskaug)란 사람이 다이나북팀에서 GUI개발을 하던중, 생각을 떠올리게 됨. 
 “사용자가 세상을 인식하는 방법(멘탈 모델)과, 컴퓨터가 정보를 인식하고 처리하는 방법이 달라보인다.
 전혀 책임이 다른 이 두 부분을 잘 분리시켜서 설계하는 게 효율적이겠구나.”
-그렇게 해서 MVC는 세상에 모습을 드러나게 되었고 결국 MVC의 존재여부는 다음과 같다.
- ** GUI를 가진 소프트웨어를 객체 지향적으로 잘 구조화하기 위해서 ** 좀더 추상화 시키자면 “관심사의 분리(separation of concerns)”를 위해 탄생했다. 라고 봐도 된다.
-좀더 구체적으로 말한다면 도메인과 presentation의 영역 분리
+그렇게 해서 MVC는 세상에 모습을 드러나게 되었고 결국 MVC의 존재여부는 다음과 같다. **"GUI를 가진 소프트웨어를 객체 지향적으로 잘 구조화하기 위해서"** 좀더 추상화 시키자면 “관심사의 분리(separation of concerns)”를 위해 탄생했다. 라고 봐도 된다.
+좀더 추가적으로 덧붙힌다면 말한다면 도메인과 presentation의 영역 분리라고도 말할 수 있다.
 
 <br>
 <br>
@@ -125,10 +124,10 @@ Presenter의 역할을 단순화하여 하위 컨트롤러에서 뷰를 대신�
 <br>
 
 1. 복잡성 때문에 model에서 view로 다이렉트로 접근하고 싶은 유혹이 생김.. <- 이 유혹에 환멸을 느끼게 됨 <br>
-2. 최신 플랫폼은 기본 위젯에서 바로 유저이벤트를 처리하는데 이부분에서 전통적인 MVC와 맞지 않다고 느낌 (controller가 이 역할을 하니깐) <br>
-3. MVC의 진화라기보단 개발 하고 있던 VisualWorks MVC내의 리팩토링 하려다가 MVP 나온 느낌 <br>
+2. 그렇다고 MVC 쓰기에는 최신 플랫폼은 기본 위젯에서 바로 유저이벤트를 처리하는데 이부분에서 전통적인 MVC와 맞지 않다고 느낌 (controller가 이 역할을 하니깐) <br>
+3. MVC의 진화라기보단 개발 하고 있던 VisualWorks MVC내의 리팩토링 과정에서 진행하다보니 MVP 라는 패턴이 나온 느낌 <br>
 
-> swift에서 MVP라하면 Presenter layer를 추가하여 viewModel을 만들어 view로 내려주는 용도로 사용하는것으로 파악
+> swift에서 MVP라하면 Presenter layer를 추가하여 viewModel을 만들어 view로 내려주는 용도로 사용하는것이 흔하다.
 
 <br>
 <br>
@@ -232,14 +231,14 @@ Clean Architecturer를 기반으로한 설계 -> 논리적 구조를 별개의 l
 
 <br>
 
-설계의 바탕은 ** Single Responsibility Principle. **
+> 설계의 바탕은 **Single Responsibility Principle.**
 
 <br>
 <br>
 
 ### 탄생이유
 <br>
-글에서 말하는걸로보아.. 찾은 결과로 보아.. https://www.objc.io/issues/13-architecture/viper/ 가 viper의 시작을 알리는 글로 추정이 된다. <br> 
+글에서 말하는걸로보아.. 찾은 결과로 보아.. https://www.objc.io/issues/13-architecture/viper/ 가 ios진영의 viper 시작을 알리는 글로 추정이 된다. <br> 
 여기 나와있듯이 iOS진영에서 테스트는 중요한 부분으로 여겨지지 않았고 이를 못마땅하게 본(?) objc.io 팀원들은 테스트를 좀 더 짜기 쉽게 하기위해 새로운 설계방법인 Viper를 만들었다. 
 
 <br>
@@ -261,10 +260,10 @@ Clean Architecturer를 기반으로한 설계 -> 논리적 구조를 별개의 l
 Riblet이라는 단위로 어플리케이션의 RIB Tree를 만들어 설계 
 <br>
 
-** View(Controller): ** 최대한 “dump”하게 디자인 됨. 일반적으로 유닛테스트가 필요한 코드가 여기 포함되지 않음 <br>
-** Interactor: ** 비지니스 로직을 담당, interactor lifecycle Rx Subscription이 일어나야함. <br>
-** Presenter: ** business Model 를 view Model로 바꿔줌.(그 반대도). 생략가능 -> 생략시 이 책임은 interactor or view <br>
-** Component: RIB dependencies를 관리함. 주로 dependencies들에 대한 엑세스제어, 제공 등을 담당,  RIB을 만들때 builder와 함께 사용된다. 
+**View(Controller):** 최대한 “dump”하게 디자인 됨. 일반적으로 유닛테스트가 필요한 코드가 여기 포함되지 않음 <br>
+**Interactor:** 비지니스 로직을 담당, interactor lifecycle Rx Subscription이 일어나야함. <br>
+**Presenter:** business Model 를 view Model로 바꿔줌.(그 반대도). 생략가능 -> 생략시 이 책임은 interactor or view <br>
+**Component:** RIB dependencies를 관리함. 주로 dependencies들에 대한 엑세스제어, 제공 등을 담당,  RIB을 만들때 builder와 함께 사용된다. 
 
 <br>
 <br>
