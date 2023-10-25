@@ -97,7 +97,6 @@ MVC의 변형으로 유사하게 애플리케이션의 도메인, 프레젠테�
 ### 탄생이유
 <br>
 MVC로부터 파생 Apple, IBM 및 Hewlett-Packard의 합작 투자 회사인 Taligent에서 1990년대 초에 시작됨 사용자 인터페이스 프레임워크의 기초로 1995년 IBM이 Taligent, Inc.를 인수한 후에 Mike Potel이 처음으로 Taligent programming model에서 발견되는 특징적인 패턴을 설명하기 위해 "Model-View-Presenter"라는 이름을 제안함.
-
 <br>
 <br>
 
