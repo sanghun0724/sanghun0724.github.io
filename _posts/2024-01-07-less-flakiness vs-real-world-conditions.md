@@ -16,7 +16,7 @@ layout: post
 <br>
   
 
-![stephencelis](/assets/stephenceils1.png "stephencelis")
+![stephencelis1](/assets/stephenceils1.png "stephencelis1")
   
 <br>
 <br>
@@ -32,12 +32,12 @@ layout: post
 
 Test의 Flakiness에만 신경을 쓰고 있던터라, Test의 실제 환경 반영 여부는 잘 고려하지 못했었다. 또한 executor를 바꾸게 되면 기존 사용자들이 영향을 받을 수 있다는 점도 간과하였다.
 
-그럼에도 불구하고, less flakey한 코드를 내버려두는것에 의구심이 남아 좀 더 디테일한 설명요청과 함께 질문을 드렸더니 흔쾌히 정성스런 답변을 주셨다.
+그럼에도 불구하고, less flakey한 코드를 내버려두는것에 의구심이 남아 좀 더 디테일한 설명요청과 함께 질문을 하였더니 금방 정성스런 답변을 받을 수 있었다.
 
 <br>
 <br>
 
-![stephencelis](/assets/stephenceils2.png "stephencelis")
+![stephencelis2](/assets/stephenceils2.png "stephencelis2")
 
 <br>
 <br>
@@ -58,11 +58,11 @@ Test의 Flakiness에만 신경을 쓰고 있던터라, Test의 실제 환경 반
 <br>
 <br>
 
-근데 현재 처럼, **Less Flakiness vs Real-world Conditions을 비교해보아야 하는 상황이면 어떻게 해야할까?**
+근데 현재 처럼, Test 환경에서 **Less Flakiness vs Real-world Conditions을 비교해보아야 하는 상황이면 어떻게 해야할까?**
 
  <br>
 
-비교에 앞서, 둘의 정의부터 살펴보자.
+둘의 정의를 통해 맥락을 비교해보자.
 
  <br>
 
