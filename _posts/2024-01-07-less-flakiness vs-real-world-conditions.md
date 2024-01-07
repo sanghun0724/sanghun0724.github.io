@@ -16,7 +16,7 @@ layout: post
 <br>
   
 
-  ![screenshot](../assets/stephenceils1.png)
+<img src="../assets/stephenceils1.png">
   
 <br>
 <br>
@@ -37,7 +37,7 @@ Test의 Flakiness에만 신경을 쓰고 있던터라, Test의 실제 환경 반
 <br>
 <br>
 
-![screenshot](../assets/stephenceils2.png)
+<img src="../assets/stephenceils2.png">
 
 <br>
 <br>
