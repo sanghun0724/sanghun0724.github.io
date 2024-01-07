@@ -6,7 +6,7 @@ layout: post
 
 최근 내 iTime프로젝트에서 쓰고있던  swift-clocks 라이브러리의 Testclock을 사용한 clock unit test들이 random하게 터지는 일이 발생을 했다. 
 원인을 찾아보니 TestClock에서 제공하는 advance(to:) 함수가 flakey한것이 원인이었다.  
- 당시 내 생각은 Test에서 쓰이는 Clock의 인터페이스가 deterministic하지 못한건 잘못 되었다 생각하고 swift-concurrency-extra의 `withMainSerialExecutor` 함수를 사용해, TestClock의 advance(to:)  구현부를 감싸 Test시에 동작을 좀 더 deterministically 하게 바꾸어 PR을 올렸다.  
+ 당시 내 생각은 Test에서 쓰이는 Clock의 인터페이스가 deterministic하지 못한건 잘못 되었다 생각하고 swift-concurrency-extra의 `withMainSerialExecutor` 함수를 사용해, TestClock의 advance(to:)  구현부를 감싸 Test시에 동작을 좀 더 deterministically 하게 바꾸어 PR을 올렸다.  [PR 코드 수정 부분](https://github.com/pointfreeco/swift-clocks/pull/27/files)
 
   <br><br>
 
@@ -95,6 +95,7 @@ Test의 Flakiness에만 신경을 쓰고 있던터라, Test의 실제 환경 반
 
 <br>
 <br>
+-자세한 PR 내용은 하단 참조-
 <br>
 Ref: <br>
  
