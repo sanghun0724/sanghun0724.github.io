@@ -16,7 +16,7 @@ layout: post
 <br>
   
 
-<img src="Images/stephenceils1.png">
+![stephencelis](/assets/stephenceils1.png "stephencelis")
   
 <br>
 <br>
@@ -37,7 +37,7 @@ Test의 Flakiness에만 신경을 쓰고 있던터라, Test의 실제 환경 반
 <br>
 <br>
 
-<img src="Images/stephenceils2.png">
+![stephencelis](/assets/stephenceils2.png "stephencelis")
 
 <br>
 <br>
