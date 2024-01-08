@@ -46,7 +46,7 @@ Test의 Flakiness에만 신경을 쓰고 있던터라, Test의 실제 환경 반
 
 -   사용자들은 default executor와 함께 TestClock을 사용하여 실제 환경과 유사하게 동작하도록 해야 한다.
 -   withMainSerialExecutor를 사용하면 비동기 코드가 메인 스레드에서 예측 가능하게 연속적으로 실행되어 TestClock을 사용하는 코드가 현실과 다르게 동작하게 된다. 
--   따라 실제 환경을 테스트하려는 사용자들은 여전히 기본 설정에서 가능해야 하며, flakey한 부분은 다른 방법으로 각자 handling 되어야 하는게 적절하다.
+-   따라 실제 환경을 테스트하려는 사용자들은 여전히 default excecutor에서 테스트가 가능해야 하며, flakey한 현상들은 다른 방법으로 각자 handling 되어야 하는게 적절하다.
 
   
  <br>
