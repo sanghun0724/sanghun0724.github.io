@@ -5,7 +5,7 @@ layout: post
 <br/>
 
 최근 내 iTime프로젝트에서 쓰고있던  swift-clocks 라이브러리의 Testclock을 사용한 clock unit test들이 random하게 터지는 일이 발생을 했다. 
-원인을 찾아보니 TestClock에서 제공하는 advance(to:) 함수가 flakey한것이 원인이었다.  
+원인을 찾아보니 TestClock에서 제공하는 advance(to:) 함수가 flaky한것이 원인이었다.  
  당시 내 생각은 Test에서 쓰이는 Clock의 인터페이스가 deterministic하지 못한건 잘못 되었다 생각하고 swift-concurrency-extra의 `withMainSerialExecutor` 함수를 사용해, TestClock의 advance(to:)  구현부를 감싸 Test시에 동작을 좀 더 deterministically 하게 바꾸어 PR을 올렸다.  [PR 코드 수정 부분](https://github.com/pointfreeco/swift-clocks/pull/27/files)
 
   <br><br>
@@ -23,7 +23,7 @@ layout: post
 
 요약:
 
--   너의 코드가 Test를 less flakey하게 만드는건 맞다.
+-   너의 코드가 Test를 less flaky하게 만드는건 맞다.
 
 - 하지만, 실제 환경을 테스트하려는 사용자들이 TestClock을 사용하는 것을 방해 또는 예상치못한 effect를 발생시킬수 있다.
 
@@ -32,7 +32,7 @@ layout: post
 
 Test의 Flakiness에만 신경을 쓰고 있던터라, Test의 실제 환경 반영 여부는 잘 고려하지 못했었다. 또한 executor를 바꾸게 되면 기존 사용자들이 영향을 받을 수 있다는 점도 간과하였다.
 
-그럼에도 불구하고, less flakey한 코드를 내버려두는것에 의구심이 남아 좀 더 디테일한 설명요청과 함께 질문을 하였더니 금방 정성스런 답변을 받을 수 있었다.
+그럼에도 불구하고, less flaky한 코드를 내버려두는것에 의구심이 남아 좀 더 디테일한 설명요청과 함께 질문을 하였더니 금방 정성스런 답변을 받을 수 있었다.
 
 <br>
 <br>
@@ -46,14 +46,14 @@ Test의 Flakiness에만 신경을 쓰고 있던터라, Test의 실제 환경 반
 
 -   사용자들은 default executor와 함께 TestClock을 사용하여 실제 환경과 유사하게 동작하도록 해야 한다.
 -   withMainSerialExecutor를 사용하면 비동기 코드가 메인 스레드에서 예측 가능하게 연속적으로 실행되어 TestClock을 사용하는 코드가 현실과 다르게 동작하게 된다. 
--   따라 실제 환경을 테스트하려는 사용자들은 여전히 default excecutor에서 테스트가 가능해야 하며, flakey한 현상들은 다른 방법으로 각자 handling 되어야 하는게 적절하다.
+-   따라 실제 환경을 테스트하려는 사용자들은 여전히 default excecutor에서 테스트가 가능해야 하며, flaky한 현상들은 다른 방법으로 각자 handling 되어야 하는게 적절하다.
 
   
  <br>
  
 즉, 애초에 이 라이브러리에서 TestClock이 설계 될때, 우선적으로 고려했던 것은 “Clock이라는 도메인의 실제환경을 반영하는 TestClock”인 것이다. 
 그렇기에 내가 수정한 PR 코드의 변경으로 설계자가 의도한 “실제 환경 반영” 이라는 의도를 비틀 수 있는 것이다.
- 따라서 이 PR이 반영 되려면, TestClock이 실제 환경을 반영하는 특징을 깨뜨리지 않고 기존 사용자들에게 의도되지 않는 영향을 주지 않으며 기존 개선하고자 했던 부분인  테스트 시의 less flakey한 ` advance(to:)` 구현체를 구현하면 된다.
+ 따라서 이 PR이 반영 되려면, TestClock이 실제 환경을 반영하는 특징을 깨뜨리지 않고 기존 사용자들에게 의도되지 않는 영향을 주지 않으며 기존 개선하고자 했던 부분인  테스트 시의 less flaky한 ` advance(to:)` 구현체를 구현하면 된다.
 
 <br>
 <br>
